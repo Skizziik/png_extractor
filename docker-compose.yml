@@ -1,0 +1,13 @@
+services:
+  rembg:
+    build: .
+    volumes:
+      - ./input:/data/input
+      - ./output:/data/output
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
